@@ -10,13 +10,14 @@
   --lift-chat-font: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"; }
 
 #lift-chat-box {
+  font-size: 16px;
   position: absolute;
   bottom: 0;
   right: 0; }
   #lift-chat-box.lift-js-chatbox {
     font-family: var(--lift-chat-font); }
     #lift-chat-box.lift-js-chatbox * {
-      line-height: 1; }
+      line-height: 1.5; }
     #lift-chat-box.lift-js-chatbox h1 {
       font-size: 2em;
       margin: .67em 0; }
@@ -137,13 +138,18 @@ html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body {
       flex-wrap: nowrap;
       align-items: center;
       padding: 1em 0;
-      display: inline-flex; }
+      display: inline-flex;
+      max-width: calc(100% - 3em); }
       html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body__header-cta-text svg {
         width: 1.5em;
         height: 1.5em; }
     html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body__header-title-chat {
       font-weight: 400;
-      font-size: 1.2rem; }
+      font-size: 1.2rem;
+      white-space: nowrap;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis; }
     html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body__header-cta-icon {
       margin-right: 0.75em; }
       html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body__header-cta-icon svg {
@@ -204,7 +210,8 @@ html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body {
           border-radius: 0.25em 1em 1em 0.25em; }
           html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body__display-chat-item-sms * {
             margin: 0;
-            padding: 0; }
+            padding: 0;
+            line-height: 1.5; }
           html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body__display-chat-item-sms a {
             color: var(--lift-chat-item-text);
             text-decoration: underline; }
@@ -349,4 +356,3 @@ html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__icon {
   100% {
     transform: scale(1); } }
 
-/*# sourceMappingURL=main.css.map */
