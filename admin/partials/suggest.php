@@ -60,7 +60,11 @@ if(isset($_GET['action']) && ($_GET['action'] === 'edit' || $_GET['action'] === 
 				</div>
 				<div class="form-required term-name-wrap">
 					<label for="groupName">Message</label>
-					<textarea name="groupName" id="groupName" class="large-text" rows="3"><?=isset($resultsSuggest->suggest_content)?$resultsSuggest->suggest_content:''?></textarea>
+					<?php
+						$content   = isset($resultsSuggest->suggest_content)?$resultsSuggest->suggest_content:'';
+						$editor_id = 'groupName';
+						wp_editor( $content, $editor_id );
+					?>
 				</div>
 			<?php } ?>
 
