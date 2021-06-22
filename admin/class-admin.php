@@ -230,6 +230,15 @@ class LIFT_Chat_Admin {
 			Field::make( 'color', '__lift_chat_style', 'Style color' )
 			->set_alpha_enabled( true )
 			->set_width(100),	
+			Field::make( 'text', '__lift_chat_size', __( 'Icon Size' ) )
+			->set_default_value('16px')
+			->set_width(25),
+			Field::make( 'text', '__lift_chat_title_size', __( 'Title Size' ) )
+			->set_default_value('24px')
+			->set_width(25),
+			Field::make( 'text', '__lift_chat_content_size', __( 'Font Size' ) )
+			->set_default_value('16px')
+			->set_width(25),
 		);
 		return $data;
 	}

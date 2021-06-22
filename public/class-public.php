@@ -110,8 +110,26 @@ class LIFT_Chat_Public {
 		if(carbon_get_theme_option('__lift_chat_style')) {
 			add_action('wp_head', array( $this, '__liftChatChangeStyle' ), 100);
 		}
+		if(carbon_get_theme_option('__lift_chat_size')) {
+			add_action('wp_head', array( $this, '__liftChatChangeSize' ), 100);
+		}
+		if(carbon_get_theme_option('__lift_chat_title_size')) {
+			add_action('wp_head', array( $this, '__liftChatChangeTitleSize' ), 100);
+		}
+		if(carbon_get_theme_option('__lift_chat_content_size')) {
+			add_action('wp_head', array( $this, '__liftChatChangeContentSize' ), 100);
+		}
 	}
 
+	public function __liftChatChangeTitleSize() {
+		echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body__header-title-chat {font-size: ".carbon_get_theme_option('__lift_chat_title_size')." !important;}</style>";
+	}
+	public function __liftChatChangeContentSize() {
+		echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body__display-chat-item-sms-arrow {font-size: ".carbon_get_theme_option('__lift_chat_content_size')." !important;}</style>";
+	}
+	public function __liftChatChangeSize() {
+		echo "<style>#lift-chat-box {font-size: ".carbon_get_theme_option('__lift_chat_size')." !important;}</style>";
+	}
 	public function __liftChatChangeStyle() {
 		echo "<style>:root {--lift-chat-color: ".carbon_get_theme_option('__lift_chat_style')." !important;
 			--lift-chat-item-bg: ".carbon_get_theme_option('__lift_chat_style')." !important;}@keyframes lift-pulse { 0% { box-shadow: 0 0 0 0 ".self::liftHexToRGB(carbon_get_theme_option('__lift_chat_style'),'.5')."; } 100% { box-shadow: 0 0 0 14px rgba(255, 255, 255, 0); } }</style>";
