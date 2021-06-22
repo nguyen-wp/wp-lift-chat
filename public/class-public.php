@@ -125,7 +125,7 @@ class LIFT_Chat_Public {
 		echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body__header-title-chat {font-size: ".carbon_get_theme_option('__lift_chat_title_size')." !important;}</style>";
 	}
 	public function __liftChatChangeContentSize() {
-		echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body__display-chat-item-sms-arrow {font-size: ".carbon_get_theme_option('__lift_chat_content_size')." !important;}</style>";
+		echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body__display-chat-item-sms {font-size: ".carbon_get_theme_option('__lift_chat_content_size')." !important;}</style>";
 	}
 	public function __liftChatChangeSize() {
 		echo "<style>#lift-chat-box {font-size: ".carbon_get_theme_option('__lift_chat_size')." !important;}</style>";
