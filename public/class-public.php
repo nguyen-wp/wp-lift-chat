@@ -123,13 +123,6 @@ class LIFT_Chat_Public {
 		if(carbon_get_theme_option('__lift_chat_position')) {
 			add_action('wp_head', array( $this, '__liftChatChangePosition' ), 100);
 		}
-		if(carbon_get_theme_option('__lift_chat_padding_x')) {
-			add_action('wp_head', array( $this, '__liftChatChangePositionX' ), 100);
-		}
-		if(carbon_get_theme_option('__lift_chat_padding_y')) {
-			add_action('wp_head', array( $this, '__liftChatChangePositionY' ), 100);
-		}
-
 	}
 
 	public function __liftChatChangePosition() {
