@@ -232,13 +232,28 @@ class LIFT_Chat_Admin {
 			->set_width(100),	
 			Field::make( 'text', '__lift_chat_size', __( 'Icon Size' ) )
 			->set_default_value('16px')
-			->set_width(25),
+			->set_width(12.5),
 			Field::make( 'text', '__lift_chat_title_size', __( 'Title Size' ) )
 			->set_default_value('24px')
-			->set_width(25),
+			->set_width(12.5),
 			Field::make( 'text', '__lift_chat_content_size', __( 'Font Size' ) )
 			->set_default_value('16px')
-			->set_width(25),
+			->set_width(12.5),
+			Field::make( 'select', '__lift_chat_position', __( 'Position' ) )
+			->add_options( array(
+				'bottomright' => 'Bottom Right',
+				'bottomleft' => 'Bottom Left',
+				'topright' => 'Top Right',
+				'topleft' => 'Top Left',
+			) )
+			->set_default_value('bottomright')
+			->set_width(12.5),
+			Field::make( 'text', '__lift_chat_padding_x', __( 'Padding X' ) )
+			->set_default_value('2em')
+			->set_width(12.5),
+			Field::make( 'text', '__lift_chat_padding_y', __( 'Padding Y' ) )
+			->set_default_value('2em')
+			->set_width(12.5),
 		);
 		return $data;
 	}
