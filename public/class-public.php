@@ -127,16 +127,16 @@ class LIFT_Chat_Public {
 
 	public function __liftChatChangePosition() {
 		if(carbon_get_theme_option('__lift_chat_position') === 'bottomright') {
-			echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body, html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__icon {bottom: ".carbon_get_theme_option('__lift_chat_padding_y')."!important; right: ".carbon_get_theme_option('__lift_chat_padding_x')."!important;}</style>";
+			echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body, html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__icon {bottom: ".carbon_get_theme_option('__lift_chat_padding_y')."!important; right: ".carbon_get_theme_option('__lift_chat_padding_x')."!important; max-width: calc(100% - 3em - ".carbon_get_theme_option('__lift_chat_padding_x').");max-height: calc(100% - 4em - ".carbon_get_theme_option('__lift_chat_padding_y').");}</style>";
 		}
 		if(carbon_get_theme_option('__lift_chat_position') === 'bottomleft') {
-			echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body, html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__icon {bottom: ".carbon_get_theme_option('__lift_chat_padding_y')."!important; left: ".carbon_get_theme_option('__lift_chat_padding_x')."!important; right: initial !important;}</style>";
+			echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body, html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__icon {bottom: ".carbon_get_theme_option('__lift_chat_padding_y')."!important; left: ".carbon_get_theme_option('__lift_chat_padding_x')."!important; right: initial !important; max-width: calc(100% - 3em - ".carbon_get_theme_option('__lift_chat_padding_x').");max-height: calc(100% - 4em - ".carbon_get_theme_option('__lift_chat_padding_y').");}</style>";
 		}
 		if(carbon_get_theme_option('__lift_chat_position') === 'topleft') {
-			echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body, html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__icon {top: ".carbon_get_theme_option('__lift_chat_padding_y')."!important; left: ".carbon_get_theme_option('__lift_chat_padding_x')."!important; right: initial !important; bottom: initial !important;}</style>";
+			echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body, html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__icon {top: ".carbon_get_theme_option('__lift_chat_padding_y')."!important; left: ".carbon_get_theme_option('__lift_chat_padding_x')."!important; right: initial !important; bottom: initial !important; max-width: calc(100% - 3em - ".carbon_get_theme_option('__lift_chat_padding_x').");max-height: calc(100% - 4em - ".carbon_get_theme_option('__lift_chat_padding_y').");}</style>";
 		}
 		if(carbon_get_theme_option('__lift_chat_position') === 'topright') {
-			echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body, html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__icon {top: ".carbon_get_theme_option('__lift_chat_padding_y')."!important; right: ".carbon_get_theme_option('__lift_chat_padding_x')."!important; bottom: initial !important;}</style>";
+			echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body, html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__icon {top: ".carbon_get_theme_option('__lift_chat_padding_y')."!important; right: ".carbon_get_theme_option('__lift_chat_padding_x')."!important; bottom: initial !important; max-width: calc(100% - 3em - ".carbon_get_theme_option('__lift_chat_padding_x').");max-height: calc(100% - 4em - ".carbon_get_theme_option('__lift_chat_padding_y').");}</style>";
 		}
 	}
 	public function __liftChatChangeTitleSize() {
