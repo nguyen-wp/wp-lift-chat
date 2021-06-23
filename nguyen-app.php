@@ -16,7 +16,7 @@
  * Plugin Name:       @LIFT Creations - LIFT Chat
  * Plugin URI:        https://baonguyenyam.github.io/cv
  * Description:       A Better Way to Connect With Customers
- * Version:           2.2.2
+ * Version:           2.2.3
  * Author:            Nguyen Pham
  * Author URI:        https://baonguyenyam.github.io/cv
  * License:           GPL-2.0+
@@ -38,7 +38,7 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'LIFT_CHAT_DOMAIN', 'lift-chat' );
 define( 'LIFT_CHAT_NICENAME', 'LIFT Chat' );
 define( 'LIFT_CHAT_PREFIX', 'lift_chat' );
-define( 'LIFT_CHAT_VERSION', '2.1.3' );
+define( 'LIFT_CHAT_VERSION', '2.2.3' );
 
 /**
  * The code that runs during plugin activation.

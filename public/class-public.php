@@ -102,26 +102,26 @@ class LIFT_Chat_Public {
 
 	public function __lift_chat_init() {
 		if(carbon_get_theme_option('__lift_chat_title')) {
-			add_action('wp_footer', array( $this, '__liftChatChangeTitle' ), 100);
+			add_action('wp_footer', array( $this, '__liftChatChangeTitle' ), 99999);
 		}
 		if(carbon_get_theme_option('__lift_chat_logo')) {
-			add_action('wp_head', array( $this, '__liftChatChangeLogo' ), 100);
+			add_action('wp_head', array( $this, '__liftChatChangeLogo' ), 99999);
 		}
 		if(carbon_get_theme_option('__lift_chat_style')) {
-			add_action('wp_head', array( $this, '__liftChatChangeStyle' ), 100);
+			add_action('wp_head', array( $this, '__liftChatChangeStyle' ), 99999);
 		}
 		if(carbon_get_theme_option('__lift_chat_size')) {
-			add_action('wp_head', array( $this, '__liftChatChangeSize' ), 100);
+			add_action('wp_head', array( $this, '__liftChatChangeSize' ), 99999);
 		}
 		if(carbon_get_theme_option('__lift_chat_title_size')) {
-			add_action('wp_head', array( $this, '__liftChatChangeTitleSize' ), 100);
+			add_action('wp_head', array( $this, '__liftChatChangeTitleSize' ), 99999);
 		}
 		if(carbon_get_theme_option('__lift_chat_content_size')) {
-			add_action('wp_head', array( $this, '__liftChatChangeContentSize' ), 100);
+			add_action('wp_head', array( $this, '__liftChatChangeContentSize' ), 99999);
 		}
 
 		if(carbon_get_theme_option('__lift_chat_position')) {
-			add_action('wp_head', array( $this, '__liftChatChangePosition' ), 100);
+			add_action('wp_head', array( $this, '__liftChatChangePosition' ), 99999);
 		}
 	}
 
@@ -156,7 +156,7 @@ class LIFT_Chat_Public {
 		echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body__header-cta-icon-avatar {background-image: url(".carbon_get_theme_option('__lift_chat_logo').") !important;}</style>";
 	}
 	public function __liftChatChangeTitle() {
-		echo "<script>LIFTReady(function(){if(document.querySelector('#lift-chat-box .lift-js-chatbox__body__header-title-chat')) {document.querySelector('#lift-chat-box .lift-js-chatbox__body__header-title-chat').innerHTML = '".carbon_get_theme_option('__lift_chat_title')."';setTimeout(() => {document.querySelector('#lift-chat-box .lift-js-chatbox__body__header-title-chat').innerHTML = '".carbon_get_theme_option('__lift_chat_title')."';}, 1000);}})</script>";
+		echo "<script>window.addEventListener('DOMContentLoaded', function(){document.querySelector('#lift-chat-box .lift-js-chatbox__body__header-title-chat').innerHTML = '".carbon_get_theme_option('__lift_chat_title')."';})</script>";
 	}
 
 	public function liftHexToRGB ($hexColor, $animation=1)
