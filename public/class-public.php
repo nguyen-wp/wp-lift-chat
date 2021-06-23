@@ -156,7 +156,7 @@ class LIFT_Chat_Public {
 		echo "<style>html #lift-chat-box.lift-js-chatbox .lift-js-chatbox__body__header-cta-icon-avatar {background-image: url(".carbon_get_theme_option('__lift_chat_logo').") !important;}</style>";
 	}
 	public function __liftChatChangeTitle() {
-		echo "<script>setTimeout(() => {document.querySelector('#lift-chat-box .lift-js-chatbox__body__header-title-chat').innerHTML = '".carbon_get_theme_option('__lift_chat_title')."';}, 200);</script>";
+		echo "<script>LIFTReady(function(){if(document.querySelector('#lift-chat-box .lift-js-chatbox__body__header-title-chat')) {document.querySelector('#lift-chat-box .lift-js-chatbox__body__header-title-chat').innerHTML = '".carbon_get_theme_option('__lift_chat_title')."';setTimeout(() => {document.querySelector('#lift-chat-box .lift-js-chatbox__body__header-title-chat').innerHTML = '".carbon_get_theme_option('__lift_chat_title')."';}, 1000);}})</script>";
 	}
 
 	public function liftHexToRGB ($hexColor, $animation=1)
