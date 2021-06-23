@@ -16,7 +16,7 @@
  * Plugin Name:       @LIFT Creations - LIFT Chat
  * Plugin URI:        https://baonguyenyam.github.io/cv
  * Description:       A Better Way to Connect With Customers
- * Version:           2.1.3
+ * Version:           2.2.0
  * Author:            Nguyen Pham
  * Author URI:        https://baonguyenyam.github.io/cv
  * License:           GPL-2.0+
