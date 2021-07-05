@@ -50,7 +50,19 @@ class LIFT_Chat_Admin {
 
 		add_action('admin_menu', array( $this, '___addPluginAdminMenu' ));   
 		add_action( 'admin_post_submit_data', array( $this, '__submitData') );
+		add_filter( 'plugin_action_links',  array( $this, '__lift_add_setting_link_chat') , 10, 2 );
 	}
+
+	// ADD SETTING LINK 
+
+	public function __lift_add_setting_link_chat( $links, $file ) {
+		if( $file === 'wp-lift-chat/nguyen-app.php' ){
+			$link = '<a href="'.admin_url('admin.php?page=crb_carbon_fields_container_lift_chat_settings.php').'">'.__('Settings', 'bn-wp-core').'</a>';
+			array_unshift( $links, $link ); 
+		}
+		return $links;
+	}
+
 
 	/**
 	 * Register the stylesheets for the admin area.
