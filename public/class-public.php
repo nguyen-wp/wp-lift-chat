@@ -94,9 +94,10 @@ class LIFT_Chat_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
-		// wp_enqueue_script( $this->liftChat['domain'].'-no-jquery', plugin_dir_url( __FILE__ ) . 'js/public-without-jquery.js', array( 'jquery' ), $this->liftChat['version'], false );
-		wp_enqueue_script( $this->liftChat['domain'], plugin_dir_url( __FILE__ ) . 'js/main.js', array( 'jquery' ), $this->liftChat['version'], false );
+		if(carbon_get_theme_option('___lift_chat_enable')) {
+			// wp_enqueue_script( $this->liftChat['domain'].'-no-jquery', plugin_dir_url( __FILE__ ) . 'js/public-without-jquery.js', array( 'jquery' ), $this->liftChat['version'], false );
+			wp_enqueue_script( $this->liftChat['domain'], plugin_dir_url( __FILE__ ) . 'js/main.js', array( 'jquery' ), $this->liftChat['version'], false );
+		}
 
 	}
 

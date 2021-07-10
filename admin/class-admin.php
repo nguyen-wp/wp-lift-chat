@@ -231,6 +231,11 @@ class LIFT_Chat_Admin {
 	public function __chatApp() {
 		$data = array();
 		$data = array(
+			Field::make(
+			'checkbox', 
+			'___lift_chat_enable',
+			__('Enable Chat')
+			)->set_option_value( 'yes' ),
 			Field::make( 'text', '__lift_chat_title', __( 'Title' ) )
 			->set_default_value('Chat with us!')
 			->set_classes( 'lift-cabon-width-class' )
