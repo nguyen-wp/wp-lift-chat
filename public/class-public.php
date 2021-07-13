@@ -102,27 +102,29 @@ class LIFT_Chat_Public {
 	}
 
 	public function __lift_chat_init() {
-		if(carbon_get_theme_option('__lift_chat_title')) {
-			add_action('wp_footer', array( $this, '__liftChatChangeTitle' ), 99999);
-		}
-		if(carbon_get_theme_option('__lift_chat_logo')) {
-			add_action('wp_head', array( $this, '__liftChatChangeLogo' ), 99999);
-		}
-		if(carbon_get_theme_option('__lift_chat_style')) {
-			add_action('wp_head', array( $this, '__liftChatChangeStyle' ), 99999);
-		}
-		if(carbon_get_theme_option('__lift_chat_size')) {
-			add_action('wp_head', array( $this, '__liftChatChangeSize' ), 99999);
-		}
-		if(carbon_get_theme_option('__lift_chat_title_size')) {
-			add_action('wp_head', array( $this, '__liftChatChangeTitleSize' ), 99999);
-		}
-		if(carbon_get_theme_option('__lift_chat_content_size')) {
-			add_action('wp_head', array( $this, '__liftChatChangeContentSize' ), 99999);
-		}
+		if(carbon_get_theme_option('___lift_chat_enable')) {
+			if(carbon_get_theme_option('__lift_chat_title')) {
+				add_action('wp_footer', array( $this, '__liftChatChangeTitle' ), 99999);
+			}
+			if(carbon_get_theme_option('__lift_chat_logo')) {
+				add_action('wp_head', array( $this, '__liftChatChangeLogo' ), 99999);
+			}
+			if(carbon_get_theme_option('__lift_chat_style')) {
+				add_action('wp_head', array( $this, '__liftChatChangeStyle' ), 99999);
+			}
+			if(carbon_get_theme_option('__lift_chat_size')) {
+				add_action('wp_head', array( $this, '__liftChatChangeSize' ), 99999);
+			}
+			if(carbon_get_theme_option('__lift_chat_title_size')) {
+				add_action('wp_head', array( $this, '__liftChatChangeTitleSize' ), 99999);
+			}
+			if(carbon_get_theme_option('__lift_chat_content_size')) {
+				add_action('wp_head', array( $this, '__liftChatChangeContentSize' ), 99999);
+			}
 
-		if(carbon_get_theme_option('__lift_chat_position')) {
-			add_action('wp_head', array( $this, '__liftChatChangePosition' ), 99999);
+			if(carbon_get_theme_option('__lift_chat_position')) {
+				add_action('wp_head', array( $this, '__liftChatChangePosition' ), 99999);
+			}
 		}
 	}
 
@@ -181,29 +183,31 @@ class LIFT_Chat_Public {
 		$json_end = ']}';
 		$json_body = '';
 		$i = 1;
-		foreach ( $resultsGroup as $groupItem ) {
-			$comma = $i<count($resultsGroup) ? ',': '';
-			$json_body .= '{"id": "lift-chat-'.$groupItem->group_id.'","items": [';
-				$m = 1;
-				$resultsSuggest = $wpdb->get_results($wpdb->prepare("SELECT * FROM {$tblSuggest} INNER JOIN {$tblGroup} ON {$tblGroup}.group_id = {$tblSuggest}.group_id AND {$tblGroup}.group_id = $groupItem->group_id"));
-				foreach ( $resultsSuggest as $item ) {
-					$commaS = $m<count($resultsSuggest) ? ',': '';
-					$json_body .= '{"id": '.$item->suggest_id.', "content": '.json_encode($item->suggest_content, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE).',';
-					if($item->target_id != '0') {
-						$json_body .= '"target": "lift-chat-'.$item->target_id.'"';
-					} else {
-						$json_body .= '"target": ""';
+		if(carbon_get_theme_option('___lift_chat_enable')) {
+			foreach ( $resultsGroup as $groupItem ) {
+				$comma = $i<count($resultsGroup) ? ',': '';
+				$json_body .= '{"id": "lift-chat-'.$groupItem->group_id.'","items": [';
+					$m = 1;
+					$resultsSuggest = $wpdb->get_results($wpdb->prepare("SELECT * FROM {$tblSuggest} INNER JOIN {$tblGroup} ON {$tblGroup}.group_id = {$tblSuggest}.group_id AND {$tblGroup}.group_id = $groupItem->group_id"));
+					foreach ( $resultsSuggest as $item ) {
+						$commaS = $m<count($resultsSuggest) ? ',': '';
+						$json_body .= '{"id": '.$item->suggest_id.', "content": '.json_encode($item->suggest_content, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE).',';
+						if($item->target_id != '0') {
+							$json_body .= '"target": "lift-chat-'.$item->target_id.'"';
+						} else {
+							$json_body .= '"target": ""';
+						}
+						$json_body .= '}'.$commaS.'';
+						$m++;
 					}
-					$json_body .= '}'.$commaS.'';
-					$m++;
-				}
-			$json_body .= ']}'.$comma.'';
-			$i++;
+				$json_body .= ']}'.$comma.'';
+				$i++;
+			}
+			$json = $json_start.$json_body.$json_end;
+			// echo($json);
+			return json_decode($json);
 		}
-		$json = $json_start.$json_body.$json_end;
-		// echo($json);
-		return json_decode($json);
-	  }
+	}
 
 }
 
